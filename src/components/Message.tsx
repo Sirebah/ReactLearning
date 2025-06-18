@@ -1,6 +1,7 @@
 type Personne = {
     prenom : string;
     nom : string;
+    email?: string; // Le point d'interrogation indique que cette propriété est optionnelle
 }
 
 
