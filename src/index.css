@@ -1,4 +1,9 @@
-.message{
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/*.message{
     border: 2px solid #cdcdcd;
     border-radius: 10px;
     background-color: #e5e0e0;
@@ -20,4 +25,4 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
-}
+} */

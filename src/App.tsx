@@ -8,7 +8,7 @@ import { USERS } from './utils/data';
 function App() {
     
   return (
-    <section>
+    <section className='container mx-auto'>
        <Users users={USERS}/>
     </section>
   );
