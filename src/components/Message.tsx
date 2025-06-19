@@ -1,8 +1,9 @@
 type Personne = {
-    prenom : string;
-    nom : string;
+    prenom? : string;
+    nom? : string;
     email?: string; // Le point d'interrogation indique que cette propriété est optionnelle
     phone?: string; // Le point d'interrogation indique que cette propriété est optionnelle
+    texte: string;
 }
 
 
@@ -11,7 +12,7 @@ type Personne = {
 function Message(personne: Personne){
     return (
         <>
-        <p>Bonjour {personne.prenom} {personne.nom}</p>
+        <p>{personne.texte} {personne.prenom} {personne.nom}</p>
         <p> {personne?.email && <span> votre email:{personne.email}</span>}</p>
         <p>{personne?.phone ? <span> et votre téléphone: {personne.phone}</span> : null}</p>
         </>
