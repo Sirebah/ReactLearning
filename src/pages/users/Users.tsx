@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { USERS } from "../../utils/data";
 
 
 type User = {
@@ -23,9 +24,9 @@ type Props = {
 
 
 
-function Users({users}: Props){ // on peut directement recupéré les users au niveau des paramètres
+function Users(){ // on peut directement recupéré les users au niveau des paramètres
 
-    const [usersSorted, setUsersSorted] = useState(users);
+    const [usersSorted, setUsersSorted] = useState<User []>(USERS);
     const [alphabetOrder, setAphabetOrder] = useState(1);
 
     const sortUsersBy = (field: string, value: string) => {
