@@ -25,7 +25,7 @@ function UserDetails() {
     let {userId} = useParams();
     console.log(userId)
     
-
+  // fonction to fetch user details based on userId
     const getOneUser = async () => {
         const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
 
