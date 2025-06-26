@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { USERS } from "../../utils/data";
+import { Link } from "react-router-dom";
 
 
 type User = {
@@ -13,6 +14,7 @@ type User = {
     address:string;
     birthDate: string;
     about: string;
+    
 
 
 
@@ -96,6 +98,28 @@ function Users(){ // on peut directement recupéré les users au niveau des para
 
 };
 
+// première méthode pour récupérer les données
+
+const userData = () => {
+
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(json => setUsersSorted(json))
+}
+
+// deuxième méthode pour récupérer les données avec async/await
+
+const fetchWithAsync = async () => {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    const json = await response.json();
+    setUsersSorted(json);
+}
+
+useEffect(()=> {
+    fetchWithAsync();
+}, []);
+
+
     return(
        <section>
 
@@ -108,12 +132,12 @@ function Users(){ // on peut directement recupéré les users au niveau des para
             </div>
             <div className="grid md:grid-cols-3 gap-4">
             {
-                usersSorted.map(({gender, firstName, lastName, email="INDISPONIBLE", phone, id}: User) =>(
-                    <article className="text-sm border bg-gray-200 border-gray-800 p-1.5 rounded-lg" key={id}>
+                usersSorted.map(({gender, firstName, lastName, email='INDISPONIBLE', phone, id}: User) =>(
+                    <Link to={`/menu/users/${id}`} className="text-sm border bg-gray-200 border-gray-800 p-1.5 rounded-lg" key={id}>
                         <h3 className="text-lg">{gender} {firstName} {lastName}</h3>
                         <p>{email}</p>
                         <p>{phone}</p>
-                    </article>
+                    </Link>
                 ) )
             }
             </div>

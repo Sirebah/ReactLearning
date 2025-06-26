@@ -24,8 +24,13 @@ function App() {
         <Link className='text-2xl border rounded-md px-5 py-2 border-gray-800 hover:bg-red-200' to={"/menu/demandes"}> Le Dashboard</Link>
 
     </div>
+    
      
   </section>
+
+  <footer className='text-center text-gray-500 text-sm py-4'>
+            copyright &copy; 2025 <span className='font-bold'> Sire bah </span>
+    </footer>
   
   </>
     
